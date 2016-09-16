@@ -1,0 +1,39 @@
+<html ng-app="randomQuoteApp">
+
+<head>
+    <title>Random quote machine</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/acron.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="randomQuoteController">
+    <div class="acron-container acron-dark-sea">
+        <h1>Random Quote Machine</h1>
+    </div>
+    <div class="main-div acron-row acron-asphalt acron-padding-jumbo">
+        <div class="acron-col s3">&nbsp;</div>
+        <div class="acron-col s6">
+            <div class="acron-container acron-clouds acron-border acron-border-belize acron-text-asphalt acron-round-medium">
+                <h4 id="quote" ng-bind-html="quote"></h4>
+                <div class="acron-right-align acron-margin-bottom">
+                    <i>{{person}}</i>
+                </div>
+                <div class="acron-row acron-margin-bottom">
+                    <div class="acron-half">
+                        <a class="acron-left acron-btn acron-dark-sea acron-round-medium" ng-href="https://twitter.com/share?text={{text}}&url=http://www.devacron.com" target="_blank"><i class="fa fa-twitter"></i> Tweet it!</a>
+                    </div>
+                    <div class="acron-half">
+                        <button ng-click="next()" class="acron-right acron-btn acron-dark-sea acron-round-medium"><i class="fa fa-refresh"></i> Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="acron-col s3">&nbsp;</div>
+    </div>
+</body>
+
+</html>
