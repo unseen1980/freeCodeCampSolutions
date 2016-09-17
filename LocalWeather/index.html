@@ -1,0 +1,39 @@
+<html ng-app="weatherApp">
+
+<head>
+    <title>Local Weather</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/acron.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="weatherAppController">
+    <div class="acron-container acron-dark-sea">
+        <h1>Local Weather</h1>
+    </div>
+    <div class="main-div acron-row acron-asphalt acron-padding-jumbo">
+        <div class="acron-col s3">&nbsp;</div>
+        <div class="acron-col s6">
+            <div class="acron-center acron-container acron-clouds acron-border acron-border-belize acron-text-asphalt acron-round-medium">
+                <h4>{{model.city}}, {{model.country}}</h4>
+                <h2 ng-show="!active">{{model.tempC}}&#8451;</h2>
+                <h2 ng-show="active">{{model.tempF}}&#8457;</h2>
+                <button class="acron-btn acron-round-medium acron-dark-sea acron-border acron-border-belize" ng-class="{'acron-clouds acron-text-dark-sea' : active}"
+                    ng-click="active=!active">&#8451;</button>
+                <button class="acron-btn acron-round-medium acron-dark-sea acron-border acron-border-belize" ng-class="{'acron-clouds acron-text-dark-sea' : !active}"
+                    ng-click="active=!active">&#8457;</button>
+                <div class=" acron-margin-bottom">
+                    <img ng-src="{{model.weatherIcon}}" alt="" />
+                </div>
+                <h4 style="text-transform: capitalize">{{model.weatherDesc}}</h4>
+            </div>
+        </div>
+        <div class="acron-col s3">&nbsp;</div>
+    </div>
+</body>
+
+</html>
