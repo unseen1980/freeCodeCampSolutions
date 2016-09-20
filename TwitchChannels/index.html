@@ -1,0 +1,56 @@
+<html ng-app="twitchApp">
+
+<head>
+    <title>Twitch app</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/acron.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="twitchController">
+    <div class="acron-container acron-dark-sea">
+        <h1>Twitch Channels</h1>
+    </div>
+    <div class="acron-row acron-padding-jumbo">
+        <div class="acron-col s3">&nbsp;</div>
+        <div class="acron-col s6">
+            <div class="acron-container acron-border acron-border-silver acron-text-asphalt">
+                <div class="acron-center">
+                    <ul class="acron-navbar acron-black">
+                        <li><a href="#" ng-click="view='all'">All</a></li>
+                        <li><a href="#" ng-click="view='online'">Online</a></li>
+                        <li><a href="#" ng-click="view='offline'">Offline</a></li>
+                    </ul>
+                </div>
+                <div class="acron-center acron-margin-bottom">
+                    <h4 class="acron-label acron-text-dark-sea">
+                        Search</h4>
+                    <input class="acron-input acron-border acron-light-grey" ng-model="query" type="text">
+                </div>
+            </div>
+            <div class="acron-margin-top acron-text-asphalt acron-round-medium">
+                <ul class="acron-ul acron-border acron-margin-top acron-margin-bottom">
+                    <li class="acron-center">
+                        <h2>Results</h2>
+                    </li>
+                    <li ng-repeat="result in resultsList | find: query | online: view">
+
+                        <div ng-repeat="(key,value) in result">
+                            <a ng-href="https://www.twitch.tv/{{key}}" target="_blank">
+                                <img ng-src="{{result[key].stream.channel.logo}}" class="acron-left acron-circle acron-margin-right" style="width:20px">
+                                <span class="acron-xlarge">{{key}}</span><br>
+                                <span>{{result[key].stream.channel.game}}</span></a>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="acron-col s3">&nbsp;</div>
+    </div>
+</body>
+
+</html>
