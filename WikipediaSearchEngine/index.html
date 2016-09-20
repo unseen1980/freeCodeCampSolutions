@@ -1,0 +1,54 @@
+<html ng-app="wikipediaApp">
+
+<head>
+    <title>Wikipedia Search Engine</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/unseen1980/AcronCSS/master/css/acron.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="wikipediaController">
+    <div class="acron-container acron-dark-sea">
+        <h1>Wikipedia Search Engine</h1>
+    </div>
+    <div class="acron-row acron-padding-jumbo">
+        <div class="acron-col s3">&nbsp;</div>
+        <div class="acron-col s6">
+            <div class="acron-container acron-border acron-border-silver acron-text-asphalt">
+
+                <div class="acron-center acron-margin-bottom">
+                    <h4 class="acron-label acron-text-dark-sea">
+                        Type your query</h4>
+                    <input class="acron-input acron-border acron-light-grey" ng-model="query" type="text">
+                </div>
+                <div class="acron-row acron-margin-bottom">
+                    <div class="acron-half">
+                        <a class="acron-left acron-btn acron-dark-sea acron-round-medium" ng-href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class="fa fa-random"></i> Random</a>
+                    </div>
+                    <div class="acron-half">
+                        <button ng-click="search()" class="acron-right acron-btn acron-dark-sea acron-round-medium"><i class="fa fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="showList" class="acron-margin-top acron-text-asphalt acron-round-medium">
+                <ul class="acron-ul acron-border acron-margin-top acron-margin-bottom">
+                    <li class="acron-center">
+                        <h2>Results</h2>
+                    </li>
+                    <li ng-repeat="result in resultsList">
+                        <a ng-href="https://en.wikipedia.org/wiki/{{result.title}}" target="_blank">
+                            <img ng-src="{{result.thumbnail.source}}" class="acron-left acron-circle acron-margin-right" style="width:20px">
+                            <span class="acron-xlarge">{{result.title}}</span><br>
+                            <span>{{result.extract}}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="acron-col s3">&nbsp;</div>
+    </div>
+</body>
+
+</html>

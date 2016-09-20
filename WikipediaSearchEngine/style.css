@@ -1,0 +1,14 @@
+li:not(:first-child) {
+    cursor: pointer;
+}
+
+li:not(:first-child):hover {
+    background-color: #ecf0f1;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
